@@ -1,0 +1,32 @@
+the meaning of different version: 
+
+v2    using carton Phi(q) method.
+v3    using direct numerical integration for Phi(q).
+v4    adding miss iteration term for 1st order f1.
+v4.1  (1)suspend the iteration logic, modify it based on my understanding.
+      (2)adding search table method, such we can skip the table generate in several round test.
+v5    stable version: (modification)
+      (1)using direct numerical integration for Phi(q).
+      (2)adding search table method, such we can skip the table generate in several round test.
+      (3)reconstruct the logic for the iteration.
+      (4)introduce a new global parameter to control the iteration for sterile neutrino.
+      (5)modify the output ratio logic for sterile neutrino. Because the ratio for sterile neutrino
+            may quite different from active neutrino.
+v6    test & delete vesion:
+      (1)adding missing bulk velocity term, but not accurate.
+      (2)delete iteration, such that many intermediate data do not need to calculate, speed up the
+            program for around 10 times.
+
+~~~~ the above are deleted. 
+
+v7    stable version:
+      (1) table generation for Phi(q), s and hubbble parameter parallely.
+      (2) reconstruct the neutrino free-streaming method by integrating with \rho_tot.
+      (3) the Phi(q), s(\tau), h(\tau) is interpolated by table using gsl library.
+      result: the simulation result is right even for power spectrum ratio.
+      todo:
+      (1) code reconstruction. to be much more unified and plugin-like.
+      (2) parallel runing on free-streaming method.
+      (3) free-streaming method should be coded as a module, such that the properties of sub-eV particles
+            (not only active neutrino) can be set freely.
+      (4) free-streaming method can be parallely running.
