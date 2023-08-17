@@ -163,3 +163,7 @@ extern int Type, MinType, MaxType;
 extern int    WDM_On;
 extern int    WDM_Vtherm_On;
 extern double WDM_PartMass_in_kev;
+
+#ifdef PARTICLENU
+extern int NmeshNu;
+#endif

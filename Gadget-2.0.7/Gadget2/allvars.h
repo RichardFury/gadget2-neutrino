@@ -506,6 +506,7 @@ extern struct global_data_all_processes
   double numdens[5];
   char ratio_nu_cdm_txt[MAXLEN_FILENAME];
   char nu_pk_txt[MAXLEN_FILENAME];
+  double temp_rho_mean;
   /* sterile neutrino parameter */
 #ifdef STERILE
   double neff;

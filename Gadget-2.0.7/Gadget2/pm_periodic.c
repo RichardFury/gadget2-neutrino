@@ -633,7 +633,9 @@ void pmforce_periodic(void)
     {     
 			int b;        
       double kk;
-      double temp_rho_mean = P[0].Mass * All.TotNumPart / pow(PMGRID, 3);
+      /* TODO: recalibrate the mass density of particles, by supporting multiple types. */
+      All.temp_rho_mean /= pow(PMGRID, 3);
+      
       double *delta_cb_local;
       delta_cb_local = (double*) malloc((num_kbins) * sizeof(double));
 			/* pre calculate the neutrino fraction first. */
@@ -700,7 +702,7 @@ void pmforce_periodic(void)
                     {
                       count_b_local[b] = count_b_local[b] + 1.;
                       /* neutrino overdensity correction because the data stored in deltagrid is density but not overdensity. */
-                      delta_cb_local[b] += (fft_of_deltagrid[ip].re * fft_of_deltagrid[ip].re + fft_of_deltagrid[ip].im * fft_of_deltagrid[ip].im) / pow(temp_rho_mean, 2);
+                      delta_cb_local[b] += (fft_of_deltagrid[ip].re * fft_of_deltagrid[ip].re + fft_of_deltagrid[ip].im * fft_of_deltagrid[ip].im) / pow(All.temp_rho_mean, 2);
                     }
                 }
             }

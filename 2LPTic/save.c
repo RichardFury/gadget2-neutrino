@@ -215,6 +215,10 @@ void save_local_data(void)
       if(WDM_On == 1 && WDM_Vtherm_On == 1)
 	      add_WDM_thermal_speeds(&block[3 * pc]);
 #endif
+#ifdef PARTICLENU
+      if(P[i].Type == 2)
+        add_nu_thermal_speeds(&block[3 * pc]);
+#endif
 #endif
     pc++;
 

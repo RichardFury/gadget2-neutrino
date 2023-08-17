@@ -206,6 +206,17 @@ void read_parameterfile(char *fname)
   addr[nt] = &Neff;
   id[nt++] = FLOAT;
 #endif
+
+#ifdef PARTICLENU
+  strcpy(tag[nt], "FileWithNuSpectrum");
+  addr[nt] = FileWithNuSpectrum;
+  id[nt++] = STRING;
+
+  strcpy(tag[nt], "NmeshNu");
+  addr[nt] = &NmeshNu;
+  id[nt++] = INT;
+#endif
+
   if((fd = fopen(fname, "r")))
   {
     while(!feof(fd))

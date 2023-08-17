@@ -167,7 +167,7 @@ void check_omega(void)
     mass += P[i].Mass;
 
   MPI_Allreduce(&mass, &masstot, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
-
+  All.temp_rho_mean = masstot;
   omega =
     masstot / (All.BoxSize * All.BoxSize * All.BoxSize) / (3 * All.Hubble * All.Hubble / (8 * M_PI * All.G));
 

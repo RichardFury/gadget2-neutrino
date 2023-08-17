@@ -111,3 +111,8 @@ int Type, MinType, MaxType;
 int WDM_On;
 int WDM_Vtherm_On;
 double WDM_PartMass_in_kev;
+
+#ifdef PARTICLENU
+int NmeshNu;
+char FileWithNuSpectrum[500];
+#endif
